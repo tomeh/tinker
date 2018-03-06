@@ -26,7 +26,8 @@ class TinkerServiceProvider extends ServiceProvider
         });
 
         $this->publishes([
-            __DIR__ . '/../config/tinker.php.stub' => config_path('tinker.php'),
+            __DIR__ . '/../config/tinker.php.stub' =>
+                $this->app->make('path.config') . DIRECTORY_SEPARATOR . 'tinker.php',
         ], 'config');
 
         $this->commands(['command.tinker']);
